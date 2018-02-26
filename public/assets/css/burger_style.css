@@ -1,0 +1,14 @@
+.btn-small {
+    height: 24px;
+    line-height: 24px;
+    padding: 1px;
+}
+
+h3 {
+    color: red;
+}
+
+btn {
+    color: blue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}

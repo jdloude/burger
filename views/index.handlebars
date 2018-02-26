@@ -1,0 +1,70 @@
+<div class="container">
+<div class="row">
+    <form>
+
+        {{!-- undevoured Burgers --}}
+        <div class="col m6 form-group">
+            <h3  style="color: grey;">Burgers to Eat</h3>
+            <ul> 
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        <div class="collection">
+                            <div class="collection-item">
+                            <span>{{id}}. {{burger_name}}</span>
+                            <button id = "devoure" value="{{id}}" class="collection-item right btn blue" id="{{id}}">Devour It!</button>
+                            </div> 
+                        </div> 
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        {{!-- devoured Burgers --}}
+        <div class="col m6 form-group">
+            <h3  style="color: grey;">Burgers Devoured</h3>
+            <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        <div class="collection">
+                            <div class="collection-item">
+                               <span>{{id}}. {{burger_name}} </span>
+                            </div>
+                        </div>                     
+                    {{/if}}
+                {{/each}}
+            </ul> 
+        </div>
+    </form>
+</div>
+   
+{{!-- adding a burger --}}
+    <div class="row center">
+        <form>
+            <div class="form-group">
+                <label for="burger">  <h5 style="color: grey;">Lets add another burger!</h5></label>
+                <textarea type="text" id="burgerName" name="burger_name" class="small"></textarea>
+                <button id="add" class="btn btn-small blue"  type="submit">Add it!</button>  
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+       $(document).on('click',"#devoure",function(){
+           console.log(this.value);
+           var row = parseInt(this.value);
+           $.post("/devour_a_burger",{row},function(data,status){
+                console.log('successful devoure!' + data + status);
+            })
+       }) 
+    //add a burg 
+     $(document).on('click',"#add",function(){
+        var val =  $('#burgerName').val().trim();
+           console.log(val);
+           $.post("/add_a_burger",{val},function(data,status){
+                console.log('successful devoure!' + data + status);
+            })
+       }) 
+    });
+</script>
