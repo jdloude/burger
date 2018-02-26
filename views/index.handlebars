@@ -60,6 +60,7 @@
        }) 
     //add a burg 
      $(document).on('click',"#add",function(){
+        preventDefault();
         var val =  $('#burgerName').val().trim();
            console.log(val);
            $.post("/add_a_burger",{val},function(data,status){
