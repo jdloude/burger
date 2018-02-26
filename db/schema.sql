@@ -7,4 +7,4 @@ CREATE TABLE `burgers` (
   `devoured` tinyint(1) DEFAULT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8
+)

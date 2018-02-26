@@ -5,7 +5,7 @@ var burgers = require('./controllers/burgers_controller.js');
 
 var app = express();
 
-var port = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
@@ -16,7 +16,7 @@ app.set('view engine', 'handlebars');
 
 app.use('/', burgers);
 
-app.listen(port, function(err) {
+app.listen(PORT, function(err) {
     if (err) throw err;
-    console.log('Listening on port:', port);
+    console.log('Listening on Port:', PORT);
 });
